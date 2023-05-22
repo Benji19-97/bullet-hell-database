@@ -145,7 +145,7 @@ function addLoadingOverlay(parent) {
 let navigation = document.getElementById("navigation");
 let tagInputsContainer = document.getElementById("tag-inputs");
 // tagInputsContainer.id = "tag-inputs";
-navigation.appendChild(tagInputsContainer);
+// navigation.appendChild(tagInputsContainer);
 
 let checkboxElements = [];
 
@@ -442,3 +442,9 @@ function spawnCopyNotification(text) {
             notification.parentNode.removeChild(notification);
       }, 2000); // Remove notification after 2 seconds
 }
+
+let header = document.getElementById("header");
+let height = header.getBoundingClientRect().height;
+
+let bodyOffsetElement = document.getElementById("body-offset");
+bodyOffsetElement.style.height = height + 10 + "px";

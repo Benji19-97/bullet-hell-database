@@ -12,7 +12,7 @@
             <!-- Link to your CSS file -->
             <link rel="stylesheet" href="styles.css" />
       </head>
-      <header class="header">
+      <header class="header" id="header">
             <div class="header-container">
                   <div class="logo">
                         <img id="logo-icon" src="assets/website/bullet.png" />
@@ -24,18 +24,21 @@
                         <!-- <img id="logo-text" src="assets/website/logo.png" /> -->
                   </div>
                   <nav id="navigation">
-                        <div id="tag-inputs">
-                              <!-- <label for="game">Game: </label> -->
-                              <button id="show-favo-button"><img id="show-favo-icon" /></button>
-                              <select name="game" id="game-select"></select>
-                              <input type="search" id="search" placeholder="Search" />
-                              <input type="range" min="0" max="100" value="32.5" step="2.5" id="size-slider" />
+                        <div id="search-controls-container">
+                              <div id="search-controls">
+                                    <!-- <label for="game">Game: </label> -->
+                                    <button id="show-favo-button"><img id="show-favo-icon" /></button>
+                                    <select name="game" id="game-select"></select>
+                                    <input type="search" id="search" placeholder="Search" />
+                                    <input type="range" min="0" max="100" value="32.5" step="2.5" id="size-slider" />
+                              </div>
+                              <div id="tag-inputs"></div>
                         </div>
                   </nav>
             </div>
       </header>
       <body>
-            <div class="body-offset"></div>
+            <div class="body-offset" id="body-offset"></div>
             <p id="welcome-text"></p>
             <div id="patterns-container"></div>
             <a href="disclaimer.html">Disclaimer</a>

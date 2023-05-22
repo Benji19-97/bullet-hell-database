@@ -38,10 +38,6 @@ input {
       margin: 10px;
 }
 
-.body-offset {
-      height: 190px;
-}
-
 #welcome-text {
       margin: 0;
       padding: 0;
@@ -49,23 +45,30 @@ input {
       text-align: center;
 }
 
-#tag-inputs {
+#search-controls-container {
+      display: block;
+}
+
+#tag-inputs,
+#search-controls {
       display: flex;
       justify-content: flex-start;
       align-items: stretch;
       padding: 5px;
       flex-wrap: wrap;
+      font-size: 12px;
 }
 
 .tag-input {
       padding: 0px;
       margin: 5px;
-      padding-left: 5px;
+      padding-left: 10px;
       text-transform: capitalize;
       display: flex;
       align-items: center;
       background-color: var(--header-secondary-color);
       border-radius: 5px;
+      font-size: 14px;
 }
 
 #game-select,
