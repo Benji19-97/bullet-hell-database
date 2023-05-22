@@ -26,19 +26,22 @@
                   <nav id="navigation">
                         <div id="tag-inputs">
                               <!-- <label for="game">Game: </label> -->
+                              <button id="show-favo-button"><img id="show-favo-icon" /></button>
                               <select name="game" id="game-select"></select>
                               <input type="search" id="search" placeholder="Search" />
+                              <input type="range" min="0" max="100" value="32.5" step="2.5" id="size-slider" />
                         </div>
                   </nav>
             </div>
       </header>
       <body>
-            <!-- Content will be generated here by your JavaScript -->
+            <div class="body-offset"></div>
+            <p id="welcome-text"></p>
             <div id="patterns-container"></div>
-            <!-- Link to your JavaScript file -->
-            <script src="scripts/gifffer.js"></script>
+            <a href="disclaimer.html">Disclaimer</a>
             <script src="scripts/data-entrypoint.js"></script>
             <script src="scripts/enter-the-gungeon.js"></script>
+            <script src="scripts/favo.js"></script>
             <script src="scripts/script.js"></script>
       </body>
 </html>
