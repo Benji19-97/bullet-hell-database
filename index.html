@@ -4,16 +4,41 @@
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>Bullet Database</title>
-
+            <link rel="icon" type="image/x-icon" href="assets/website/favicon.ico" />
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet" />
+            <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
             <!-- Link to your CSS file -->
             <link rel="stylesheet" href="styles.css" />
       </head>
+      <header class="header">
+            <div class="header-container">
+                  <div class="logo">
+                        <img id="logo-icon" src="assets/website/bullet.png" />
+                        <h1>
+                              <div>Bullet</div>
+                              <div>Hell</div>
+                              <div>Database</div>
+                        </h1>
+                        <!-- <img id="logo-text" src="assets/website/logo.png" /> -->
+                  </div>
+                  <nav id="navigation">
+                        <div id="tag-inputs">
+                              <!-- <label for="game">Game: </label> -->
+                              <select name="game" id="game-select"></select>
+                              <input type="search" id="search" placeholder="Search" />
+                        </div>
+                  </nav>
+            </div>
+      </header>
       <body>
             <!-- Content will be generated here by your JavaScript -->
-
+            <div id="patterns-container"></div>
             <!-- Link to your JavaScript file -->
-            <script src="games/data-entrypoint.js"></script>
-            <script src="games/enter-the-gungeon.js"></script>
-            <script src="script.js"></script>
+            <script src="scripts/gifffer.js"></script>
+            <script src="scripts/data-entrypoint.js"></script>
+            <script src="scripts/enter-the-gungeon.js"></script>
+            <script src="scripts/script.js"></script>
       </body>
 </html>
