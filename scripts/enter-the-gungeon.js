@@ -1,26 +1,5 @@
 data.push({
       name: "Enter The Gungeon",
-      //Tags:
-      // nova,
-      // boomerang,
-      // homing,
-      // shape,
-      // bouba,
-      // kiki,
-      // laser,
-      // area,
-      // directional,
-      // spread,
-      // straight,
-      // line,
-      // random,
-      // funny,
-      // spiral,
-      // transformation
-      // non-boss
-      // complex
-      // spinning
-      // on-death
       patterns: [
             {
                   name: "Agunim 1",
@@ -40,7 +19,7 @@ data.push({
             {
                   name: "Ammoconda 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Ammoconda_2_resized.gif",
-                  tags: ["boss", "straight", "kiki", "directional", "line"],
+                  tags: ["boss", "forward", "kiki", "directional", "line"],
             },
             {
                   name: "Beholster",
@@ -115,7 +94,7 @@ data.push({
             {
                   name: "Cannonbalrog 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Cannonbalrog_2_resized.gif",
-                  tags: ["boss", "straight", "line"],
+                  tags: ["boss", "forward", "line"],
             },
             {
                   name: "Cannonbalrog 3",
@@ -155,7 +134,7 @@ data.push({
             {
                   name: "Dr. Wolfs Monster 1",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Dr_Wolfs_Monster_1_resized.gif",
-                  tags: ["boss", "shape", "directional", "straight"],
+                  tags: ["boss", "shape", "directional", "forward"],
             },
             {
                   name: "Dr. Wolfs Monster 2",
@@ -190,7 +169,7 @@ data.push({
             {
                   name: "High Dragun 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_High_Dragun_2_resized.gif",
-                  tags: ["boss", "random", "straight"],
+                  tags: ["boss", "random", "forward"],
             },
             {
                   name: "High Dragun 3",
@@ -245,7 +224,7 @@ data.push({
             {
                   name: "HS Absolution 3",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_HS_Absolution_3_resized.gif",
-                  tags: ["boss", "laser", "directional", "straight"],
+                  tags: ["boss", "laser", "directional", "forward"],
             },
             {
                   name: "Interdimensional Horror 1",
@@ -265,7 +244,7 @@ data.push({
             {
                   name: "Kill Pillars 1",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Kill_Pillars_1_resized.gif",
-                  tags: ["boss", "complex", "nova", "straight", "spinning"],
+                  tags: ["boss", "complex", "nova", "line", "spinning"],
             },
             {
                   name: "Kill Pillars 2",
@@ -280,7 +259,7 @@ data.push({
             {
                   name: "Lich 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Lich_2_resized.gif",
-                  tags: ["boss", "directional", "random", "straight"],
+                  tags: ["boss", "directional", "random", "forward"],
             },
             {
                   name: "Lich 3",
@@ -290,7 +269,7 @@ data.push({
             {
                   name: "Lich 4",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Lich_4_resized.gif",
-                  tags: ["boss", "directional", "straight", "kiki"],
+                  tags: ["boss", "directional", "forward", "kiki"],
             },
             {
                   name: "Lich 5",
@@ -300,7 +279,7 @@ data.push({
             {
                   name: "Lich 6",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Lich_6_resized.gif",
-                  tags: ["boss", "complex", "line", "straight", "spinning"],
+                  tags: ["boss", "complex", "line", "spinning"],
             },
             {
                   name: "Lich 7",
@@ -310,12 +289,12 @@ data.push({
             {
                   name: "Lich 8",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Lich_8_resized.gif",
-                  tags: ["boss", "straight", "nova", "random", "line", "kiki"],
+                  tags: ["boss", "nova", "random", "line", "kiki"],
             },
             {
                   name: "Lich 9",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Lich_9_resized.gif",
-                  tags: ["boss", "line", "straight", "shape", "directional"],
+                  tags: ["boss", "line", "shape", "directional"],
             },
             {
                   name: "Mine Flayer 1",
@@ -415,12 +394,12 @@ data.push({
             {
                   name: "Wallmonger 1",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Wallmonger_1_resized.gif",
-                  tags: ["boss", "straight", "line", "directional"],
+                  tags: ["boss", "forward", "line", "directional"],
             },
             {
                   name: "Wallmonger 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Wallmonger_2_resized.gif",
-                  tags: ["boss", "shape", "straight", "directional"],
+                  tags: ["boss", "shape", "forward", "directional"],
             },
             {
                   name: "",

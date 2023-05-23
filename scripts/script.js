@@ -1,5 +1,8 @@
 let gameSelect = document.getElementById("game-select");
-gameSelect.addEventListener("input", refreshPatternContainer);
+gameSelect.addEventListener("input", () => {
+      localStorage.setItem("game-selection", gameSelect.value);
+      refreshPatternContainer();
+});
 
 // Add all option to game selection
 let allOption = document.createElement("option");
@@ -13,6 +16,7 @@ let patternsContainer = document.getElementById("patterns-container");
 
 let allPatternHtmlElements = [];
 
+//fill the game options and collect all tags found
 data.forEach(function (game) {
       let selectOption = document.createElement("option");
       selectOption.value = game.name;
@@ -24,10 +28,16 @@ data.forEach(function (game) {
             .forEach(function (pattern) {
                   // Create new DOM elements
                   pattern.tags.forEach(function (tag) {
-                        tags.push(tag);
+                        tags.push(tag.toLowerCase());
                   });
             });
 });
+
+let loadedGameSelectionValue = localStorage.getItem("game-selection");
+
+if (loadedGameSelectionValue) {
+      gameSelect.value = loadedGameSelectionValue;
+}
 
 function createPatternDisplay(gameName, pattern) {
       if (!pattern.name || pattern.name.length <= 0) {
@@ -122,7 +132,8 @@ function updateWelcomeText(show) {
       welcomeText.style.display = "block";
 
       if (!isFavoModeOn()) {
-            welcomeText.innerHTML = `<b class="bold">Welcome to the Bullet Hell Database!</b><br>You are currently viewing <div class="number">${randomPatterns}</div> random bullet hell GIFs of <div class="number">${totalPatternCount}</div> spread across a total of <div class="number">${gamesCount}</div> games. <a href="disclaimer.html">Enjoy!</a>`;
+            welcomeText.innerHTML = `<b class="bold">Welcome to the Bullet Hell Database!</b><br>You are currently viewing <div class="number">${randomPatterns}</div> random out of <div class="number">${totalPatternCount}</div> bullet hell GIFs spread across a total of <div class="number">${gamesCount}</div> games. <a href="disclaimer.html">Enjoy!</a><br><span class="hint">
+            Please note that this is not a complete collection and just contains GIFs deemed noteworthy by the author of this website.</span>`;
       } else {
             welcomeText.innerHTML = "You currently have no favorites. :( Hope you soon find some!";
       }
@@ -149,7 +160,106 @@ let tagInputsContainer = document.getElementById("tag-inputs");
 
 let checkboxElements = [];
 
-const tagSet = [...new Set(tags)].sort();
+const orderedTags = {
+      //enemy type
+      boss: "enemy-type",
+      "non-boss": "enemy-type",
+
+      //Descriptive
+      bouba: "descriptive",
+      kiki: "descriptive",
+
+      //Emission
+      nova: "emission",
+      directional: "emission",
+      spread: "emission",
+      random: "emission",
+
+      //Shape
+      line: "shape",
+      squiggly: "shape",
+      shape: "shape",
+      funny: "shape",
+
+      //Flying
+      forward: "flying",
+      homing: "flying",
+      spiral: "flying",
+      spinning: "flying",
+      reverse: "flying",
+      bounce: "flying",
+      boomerang: "flying",
+
+      //special
+      complex: "special",
+
+      // non-projectile
+      area: "non-projectile",
+      laser: "non-projectile",
+      shockwave: "non-projectile",
+      mortar: "non-projectile",
+
+      //Gimmicks
+      summon: "gimmick",
+
+      transformation: "gimmick",
+      "on-death": "gimmick",
+      "sub-emission": "gimmick",
+
+      //Movement
+      teleport: "movement",
+      dash: "movement",
+};
+
+function orderAndCategorizeTags(tags) {
+      // Create a new Map to hold categorized tags
+      let categorizedTags = new Map();
+
+      // Initialize categories
+      for (let category in orderedTags) {
+            categorizedTags.set(orderedTags[category], []);
+      }
+
+      // Categorize the tags
+      for (let tag of tags) {
+            if (tag in orderedTags) {
+                  let category = orderedTags[tag];
+                  categorizedTags.get(category).push(tag);
+            } else {
+                  // The tag is not categorized
+                  if (!categorizedTags.has("uncategorized")) {
+                        categorizedTags.set("uncategorized", []);
+                  }
+                  categorizedTags.get("uncategorized").push(tag);
+            }
+      }
+
+      // Alphabetically sort the tags in each category
+      for (let [category, tags] of categorizedTags.entries()) {
+            categorizedTags.set(category, tags.sort());
+      }
+
+      // Get the order of categories from orderedTags
+      let categoryOrder = [...new Set(Object.values(orderedTags))];
+
+      // Push "uncategorized" at the end
+      categoryOrder.push("uncategorized");
+
+      // Merge all categories
+      let sortedTags = [];
+      for (let category of categoryOrder) {
+            if (categorizedTags.has(category)) {
+                  sortedTags.push(...categorizedTags.get(category));
+            }
+      }
+
+      return sortedTags;
+}
+
+//set up the tag checkboxes
+let tagSetUncategorized = [...new Set(tags)];
+let tagSet = orderAndCategorizeTags(tagSetUncategorized);
+
 tagSet.forEach(function (tag) {
       let inputParent = document.createElement("div");
       inputParent.classList.add("tag-input");
@@ -164,6 +274,11 @@ tagSet.forEach(function (tag) {
       checkbox.value = tag;
       checkbox.name = tag;
       checkbox.id = tag + "checkbox";
+
+      if (orderedTags[tag]) {
+            inputParent.classList.add(orderedTags[tag]);
+      }
+
       const savedValue = localStorage.getItem(checkbox.id);
       if (savedValue) {
             checkbox.checked = savedValue === "true";
@@ -215,40 +330,47 @@ function refreshPatternContainer() {
       });
 
       let randomSelection = getRandomPatterns(randomPatterns);
-      console.log("random patterns count: " + randomSelection.length);
-      console.log(randomSelection);
 
       updateWelcomeText(false);
       clearBadFavorites();
 
-      if (searchField.value.length == 0 && activeTags.length == 0 && !isFavoModeOn()) {
+      if (
+            searchField.value.length == 0 &&
+            activeTags.length == 0 &&
+            !isFavoModeOn() &&
+            gameSelect.value == "All Games"
+      ) {
             randomSelection.forEach(function (pattern) {
                   showPatternElement(pattern.gameName, pattern);
             });
             updateWelcomeText(true);
       } else {
             data.forEach(function (game) {
-                  game.patterns.forEach(function (pattern) {
-                        if (
-                              pattern.name.toLowerCase().includes(searchField.value.toLowerCase()) ||
-                              searchField.value.length == 0
-                        ) {
-                              if (activeTags.length == 0 || activeTags.every((tag) => pattern.tags.includes(tag))) {
-                                    if (isFavoModeOn()) {
-                                          console.log("favos: " + getFavorites());
-                                          if (getFavorites().length == 0) {
-                                                updateWelcomeText(true);
-                                          }
+                  if (gameSelect.value == "All Games" || gameSelect.value == game.name) {
+                        game.patterns.forEach(function (pattern) {
+                              if (
+                                    pattern.name.toLowerCase().includes(searchField.value.toLowerCase()) ||
+                                    searchField.value.length == 0
+                              ) {
+                                    if (
+                                          activeTags.length == 0 ||
+                                          activeTags.every((tag) => pattern.tags.includes(tag))
+                                    ) {
+                                          if (isFavoModeOn()) {
+                                                if (getFavorites().length == 0) {
+                                                      updateWelcomeText(true);
+                                                }
 
-                                          if (isFavourited(game.name, pattern.name)) {
+                                                if (isFavourited(game.name, pattern.name)) {
+                                                      showPatternElement(game.name, pattern);
+                                                }
+                                          } else {
                                                 showPatternElement(game.name, pattern);
                                           }
-                                    } else {
-                                          showPatternElement(game.name, pattern);
                                     }
                               }
-                        }
-                  });
+                        });
+                  }
             });
       }
 
@@ -447,4 +569,4 @@ let header = document.getElementById("header");
 let height = header.getBoundingClientRect().height;
 
 let bodyOffsetElement = document.getElementById("body-offset");
-bodyOffsetElement.style.height = height + 10 + "px";
+bodyOffsetElement.style.height = height * 1.05 + "px";

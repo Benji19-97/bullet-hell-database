@@ -38,13 +38,6 @@ input {
       margin: 10px;
 }
 
-#welcome-text {
-      margin: 0;
-      padding: 0;
-      line-height: 2em;
-      text-align: center;
-}
-
 #search-controls-container {
       display: block;
 }
@@ -368,4 +361,56 @@ a {
             opacity: 0;
             transform: translate(0, -50px);
       }
+}
+
+.gimmick.tag-input {
+      background-color: hsl(272, 20%, 50%);
+}
+
+.non-projectile.tag-input {
+      background-color: hsl(0, 20%, 50%);
+}
+
+.special.tag-input {
+      background-color: hsl(313, 30%, 50%);
+}
+
+.flying.tag-input {
+      background-color: hsl(201, 30%, 50%);
+}
+
+.shape.tag-input {
+      background-color: hsl(47, 7%, 59%);
+}
+
+.emission.tag-input {
+      background-color: hsl(106, 20%, 50%);
+}
+
+.descriptive.tag-input {
+      background-color: hsl(32, 40%, 59%);
+}
+
+.enemy-type.tag-input {
+      background-color: hsl(0, 40%, 50%);
+}
+
+.movement.tag-input {
+      background-color: hsl(44, 59%, 67%);
+}
+
+#welcome-text {
+      margin: 0;
+      padding: 0;
+      line-height: 2em;
+      text-align: center;
+      text-shadow: black 0px 0px 20px;
+}
+
+.hint {
+      font-size: 14px;
+      font-weight: 900;
+      font-style: italic;
+      -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+      text-shadow: red -1px -1px 1px, red 1px 1px 1px, red -1px 1px 1px, red 1px -1px 1px;
 }
