@@ -414,3 +414,15 @@ a {
       -webkit-text-fill-color: white; /* Will override color (regardless of order) */
       text-shadow: red -1px -1px 1px, red 1px 1px 1px, red -1px 1px 1px, red 1px -1px 1px;
 }
+
+#load-more-button {
+      margin-left: 30px;
+      background-color: var(--pattern-background-color);
+      border: solid hsl(230, 10%, 40%);
+      padding: 8px;
+      font-size: 16px;
+      color: hsl(230, 10%, 70%);
+      box-shadow: 0px 0px 5px black;
+      font-weight: bold;
+      cursor: pointer;
+}

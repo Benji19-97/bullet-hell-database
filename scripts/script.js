@@ -103,7 +103,7 @@ function createPatternDisplay(gameName, pattern) {
       };
 
       pattern.tags.sort().forEach(function (tag) {
-            div.classList.add(tag);
+            div.classList.add(tag.toLowerCase());
 
             let tagElement = document.createElement("div");
             tagElement.textContent = tag;
@@ -190,14 +190,12 @@ const orderedTags = {
       bounce: "flying",
       boomerang: "flying",
 
-      //special
-      complex: "special",
-
       // non-projectile
       area: "non-projectile",
       laser: "non-projectile",
       shockwave: "non-projectile",
       mortar: "non-projectile",
+      trail: "non-projectile",
 
       //Gimmicks
       summon: "gimmick",
@@ -209,6 +207,9 @@ const orderedTags = {
       //Movement
       teleport: "movement",
       dash: "movement",
+
+      //special
+      complex: "special",
 };
 
 function orderAndCategorizeTags(tags) {
@@ -295,6 +296,7 @@ tagSet.forEach(function (tag) {
 const searchField = document.getElementById("search");
 let timeoutId = null;
 let timeoutId2 = null;
+let timeoutId3 = null;
 
 searchField.addEventListener("input", (event) => {
       // Clear any existing timeouts
@@ -318,6 +320,36 @@ function removeLeadingDotDotSlash(path) {
 var randomPatterns = 8;
 
 function refreshPatternContainer() {
+      // Clear any existing timeouts
+      if (timeoutId3) {
+            clearTimeout(timeoutId3);
+      }
+
+      // Set a new timeout
+      timeoutId3 = setTimeout(() => {
+            refreshPatternContainerNow();
+      }, 1000);
+}
+
+var patternQueue = new Queue();
+
+function enqueuePatternElementToShow(gameName, pattern) {
+      patternQueue.enqueue({ gameName: gameName, pattern: pattern });
+}
+
+function dequeuePatternsAndShow(amount) {
+      for (let i = 0; i < amount; i++) {
+            if (patternQueue.any()) {
+                  let obj = patternQueue.dequeue();
+                  showPatternElement(obj.gameName, obj.pattern);
+            }
+      }
+
+      refreshLoadMoreButton();
+      sortChildrenByName(patternsContainer);
+}
+
+function refreshPatternContainerNow() {
       let activeTags = [];
       checkboxElements.forEach(function (checkbox) {
             if (checkbox.checked) {
@@ -328,6 +360,8 @@ function refreshPatternContainer() {
       allPatternHtmlElements.forEach(function (patternElement) {
             hidePatternElement(patternElement);
       });
+
+      patternQueue.clear();
 
       let randomSelection = getRandomPatterns(randomPatterns);
 
@@ -362,10 +396,10 @@ function refreshPatternContainer() {
                                                 }
 
                                                 if (isFavourited(game.name, pattern.name)) {
-                                                      showPatternElement(game.name, pattern);
+                                                      enqueuePatternElementToShow(game.name, pattern);
                                                 }
                                           } else {
-                                                showPatternElement(game.name, pattern);
+                                                enqueuePatternElementToShow(game.name, pattern);
                                           }
                                     }
                               }
@@ -373,6 +407,9 @@ function refreshPatternContainer() {
                   }
             });
       }
+
+      patternQueue.sort();
+      dequeuePatternsAndShow(10);
 
       //set tags active and inactive
       const allTagElements = Array.prototype.slice.call(document.getElementsByClassName("tag-element"), 0);
@@ -385,6 +422,56 @@ function refreshPatternContainer() {
       });
 
       onSliderChanged();
+}
+
+var loadMoreButton = document.getElementById("load-more-button");
+loadMoreButton.addEventListener("click", onPressLoadMoreButton);
+
+function refreshLoadMoreButton() {
+      if (patternQueue.isEmpty()) {
+            loadMoreButton.style.display = "none";
+      } else {
+            loadMoreButton.style.display = "block";
+            let visibleElements = countVisibleElements("pattern-element");
+            loadMoreButton.innerText = `LOAD 10 MORE [showing ${visibleElements}/${
+                  visibleElements + patternQueue.size()
+            }]`;
+      }
+}
+
+function countVisibleElements(className) {
+      const elements = document.getElementsByClassName(className);
+      let count = 0;
+
+      for (let i = 0; i < elements.length; i++) {
+            const element = elements[i];
+            const computedStyle = window.getComputedStyle(element);
+
+            if (computedStyle.display !== "none") {
+                  count++;
+            }
+      }
+
+      return count;
+}
+
+function sortChildrenByName(parentElement) {
+      const children = Array.from(parentElement.children);
+      children.sort((a, b) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0;
+      });
+
+      for (const child of children) {
+            parentElement.appendChild(child);
+      }
+}
+
+function onPressLoadMoreButton() {
+      dequeuePatternsAndShow(10);
 }
 
 function hidePattern(gameName, patternName) {
@@ -565,8 +652,10 @@ function spawnCopyNotification(text) {
       }, 2000); // Remove notification after 2 seconds
 }
 
-let header = document.getElementById("header");
-let height = header.getBoundingClientRect().height;
+window.addEventListener("load", () => {
+      let header = document.getElementById("header");
+      let height = header.getBoundingClientRect().height;
 
-let bodyOffsetElement = document.getElementById("body-offset");
-bodyOffsetElement.style.height = height * 1.05 + "px";
+      let bodyOffsetElement = document.getElementById("body-offset");
+      bodyOffsetElement.style.height = height * 1.05 + "px";
+});

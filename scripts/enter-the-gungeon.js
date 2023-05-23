@@ -29,7 +29,7 @@ data.push({
             {
                   name: "Black Stache",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Black_Stache_1_resized.gif",
-                  tags: ["boss", "area"],
+                  tags: ["boss", "area", "mortar"],
             },
             {
                   name: "Blobulord 1",
