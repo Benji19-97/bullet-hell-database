@@ -24,7 +24,7 @@ data.push({
             {
                   name: "Badge Shrine 5",
                   gif: "../assets/gifs/archvale/ARCH_Badge_Shrine_5.gif",
-                  tags: ["non-boss", "laser"],
+                  tags: ["non-boss", "laser", "difficult"],
             },
             {
                   name: "Frankenslime 1",
@@ -39,7 +39,7 @@ data.push({
             {
                   name: "Frankenslime 3",
                   gif: "../assets/gifs/archvale/ARCH_Frankenslime_3.gif",
-                  tags: ["boss", "shockwave", "nova"],
+                  tags: ["boss", "shockwave", "nova", "difficult"],
             },
             {
                   name: "Frankenslime 4",
@@ -164,7 +164,7 @@ data.push({
             {
                   name: "The Banished Executioner 2",
                   gif: "../assets/gifs/archvale/ARCH_The_Banished_Executioner_2.gif",
-                  tags: ["boss", "directional", "spiral"],
+                  tags: ["boss", "directional", "spiral", "difficult"],
             },
             {
                   name: "The Banished Executioner 3",
@@ -179,7 +179,7 @@ data.push({
             {
                   name: "The Banished Executioner 5",
                   gif: "../assets/gifs/archvale/ARCH_The_Banished_Executioner_5.gif",
-                  tags: ["boss", "bouba", "line", "nova", "laser", "complex"],
+                  tags: ["boss", "line", "nova", "laser", "complex", "difficult"],
             },
             {
                   name: "The Exiled Wizard 1",
@@ -234,7 +234,7 @@ data.push({
             {
                   name: "The Groves Blight 2",
                   gif: "../assets/gifs/archvale/ARCH_The_Groves_Blight_2.gif",
-                  tags: ["boss", "laser"],
+                  tags: ["boss", "laser", "parallel"],
             },
             {
                   name: "The Groves Blight 3",
@@ -254,12 +254,12 @@ data.push({
             {
                   name: "The Groves Blight 6",
                   gif: "../assets/gifs/archvale/ARCH_The_Groves_Blight_6.gif",
-                  tags: ["boss", "laser"],
+                  tags: ["boss", "laser", "difficult"],
             },
             {
                   name: "The Groves Blight 7",
                   gif: "../assets/gifs/archvale/ARCH_The_Groves_Blight_7.gif",
-                  tags: ["boss", "laser", "line"],
+                  tags: ["boss", "laser", "line", "parallel"],
             },
             {
                   name: "The King 1",
@@ -279,17 +279,17 @@ data.push({
             {
                   name: "The King 4",
                   gif: "../assets/gifs/archvale/ARCH_The_King_4.gif",
-                  tags: ["boss", "forward"],
+                  tags: ["boss", "forward", "parallel"],
             },
             {
                   name: "The King 5",
                   gif: "../assets/gifs/archvale/ARCH_The_King_5.gif",
-                  tags: ["boss", "laser"],
+                  tags: ["boss", "laser", "parallel"],
             },
             {
                   name: "The King 6",
                   gif: "../assets/gifs/archvale/ARCH_The_King_6.gif",
-                  tags: ["boss", "laser"],
+                  tags: ["boss", "laser", "parallel"],
             },
             {
                   name: "The King 7",
@@ -339,7 +339,7 @@ data.push({
             {
                   name: "The Soul Serpent 2",
                   gif: "../assets/gifs/archvale/ARCH_The_Soul_Serpent_2.gif",
-                  tags: ["boss", "spinning", "nova"],
+                  tags: ["boss", "spinning", "nova", "creative"],
             },
             {
                   name: "The Soul Serpent 3",
@@ -371,16 +371,6 @@ data.push({
                   name: "The Sunken Queen 5",
                   gif: "../assets/gifs/archvale/ARCH_The_Sunken_Queen_5.gif",
                   tags: ["boss", "summon", "sub-emission"],
-            },
-            {
-                  name: "",
-                  gif: "../assets/gifs/archvale",
-                  tags: ["boss"],
-            },
-            {
-                  name: "",
-                  gif: "../assets/gifs/archvale",
-                  tags: ["boss"],
             },
       ],
 });

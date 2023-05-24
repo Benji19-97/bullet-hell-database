@@ -14,7 +14,7 @@ data.push({
             {
                   name: "MEAC Empress Of Light 3",
                   gif: "../assets/gifs/terraria-MEAC-mod/MEAC_Empress_Of_Light_3.gif",
-                  tags: ["boss", "random", "laser", "complex", "kiki"],
+                  tags: ["boss", "random", "laser", "difficult", "kiki"],
             },
             {
                   name: "MEAC Empress Of Light 4",
@@ -24,12 +24,12 @@ data.push({
             {
                   name: "MEAC Empress Of Light 5",
                   gif: "../assets/gifs/terraria-MEAC-mod/MEAC_Empress_Of_Light_5.gif",
-                  tags: ["boss", "laser", "directional", "line"],
+                  tags: ["boss", "laser", "directional", "line", "parallel"],
             },
             {
                   name: "MEAC Empress Of Light 6",
                   gif: "../assets/gifs/terraria-MEAC-mod/MEAC_Empress_Of_Light_6.gif",
-                  tags: ["boss", "laser", "spiral"],
+                  tags: ["boss", "laser", "spiral", "difficult", "parallel"],
             },
             {
                   name: "MEAC Empress Of Light 7",
@@ -39,7 +39,7 @@ data.push({
             {
                   name: "MEAC Empress Of Light 8",
                   gif: "../assets/gifs/terraria-MEAC-mod/MEAC_Empress_Of_Light_8.gif",
-                  tags: ["boss", "line", "laser", "directional"],
+                  tags: ["boss", "line", "laser", "directional", "parallel"],
             },
             {
                   name: "MEAC Empress Of Light 9",
@@ -49,12 +49,12 @@ data.push({
             {
                   name: "MEAC Empress Of Light 10",
                   gif: "../assets/gifs/terraria-MEAC-mod/MEAC_Empress_Of_Light_10.gif",
-                  tags: ["boss", "laser", "directional", "line"],
+                  tags: ["boss", "laser", "directional", "line", "parallel"],
             },
             {
                   name: "MEAC Empress Of Light 11",
                   gif: "../assets/gifs/terraria-MEAC-mod/MEAC_Empress_Of_Light_11.gif",
-                  tags: ["boss", "area", "shockwave", "bouba"],
+                  tags: ["boss", "area", "shockwave", "creative"],
             },
             {
                   name: "MEAC Empress Of Light 12",
@@ -64,12 +64,12 @@ data.push({
             {
                   name: "MEAC Empress Of Light 13",
                   gif: "../assets/gifs/terraria-MEAC-mod/MEAC_Empress_Of_Light_13.gif",
-                  tags: ["boss", "laser", "spiral", "directional", "line"],
+                  tags: ["boss", "laser", "difficult"],
             },
             {
                   name: "MEAC Empress Of Light 14",
                   gif: "../assets/gifs/terraria-MEAC-mod/MEAC_Empress_Of_Light_14.gif",
-                  tags: ["boss", "laser", "directional", "line"],
+                  tags: ["boss", "laser", "directional", "line", "parallel"],
             },
       ],
 });

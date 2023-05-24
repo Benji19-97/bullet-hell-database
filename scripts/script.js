@@ -1,3 +1,5 @@
+data.sort((a, b) => a.name.localeCompare(b.name));
+
 let gameSelect = document.getElementById("game-select");
 gameSelect.addEventListener("input", () => {
       localStorage.setItem("game-selection", gameSelect.value);
@@ -55,6 +57,7 @@ function createPatternDisplay(gameName, pattern) {
       div.classList.add("pattern-element");
       // div.classList.add("hide");
       div.name = pattern.name;
+      div.setAttribute("name", pattern.name);
       div.id = gameName + "-" + pattern.name;
 
       let h2 = document.createElement("h2");
@@ -174,6 +177,7 @@ const orderedTags = {
       directional: "emission",
       spread: "emission",
       random: "emission",
+      parallel: "emission",
 
       //Shape
       line: "shape",
@@ -210,6 +214,8 @@ const orderedTags = {
 
       //special
       complex: "special",
+      difficult: "special",
+      creative: "special",
 };
 
 function orderAndCategorizeTags(tags) {
@@ -346,7 +352,6 @@ function dequeuePatternsAndShow(amount) {
       }
 
       refreshLoadMoreButton();
-      sortChildrenByName(patternsContainer);
 
       //set tags active and inactive
       console.log("update tags");
@@ -358,6 +363,9 @@ function dequeuePatternsAndShow(amount) {
                   tagElement.classList.add("inactive-tag");
             }
       });
+
+      sortChildrenByName(patternsContainer);
+      onSliderChanged();
 }
 
 var activeTags = [];
@@ -423,8 +431,6 @@ function refreshPatternContainerNow() {
 
       patternQueue.sort();
       dequeuePatternsAndShow(10);
-
-      onSliderChanged();
 }
 
 var loadMoreButton = document.getElementById("load-more-button");
@@ -461,11 +467,32 @@ function countVisibleElements(className) {
 function sortChildrenByName(parentElement) {
       const children = Array.from(parentElement.children);
       children.sort(function (a, b) {
-            var numA = parseInt(a.textContent.match(/\d+/)[0]);
-            var numB = parseInt(b.textContent.match(/\d+/)[0]);
+            var nameA = a.getAttribute("name").toLowerCase();
+            var nameB = b.getAttribute("name").toLowerCase();
 
-            // Compare the numerical values
-            return numA - numB;
+            // Extract name parts and numeric values from names
+            var namePartA = nameA.replace(/\d+$/, "").trim();
+            var namePartB = nameB.replace(/\d+$/, "").trim();
+            var numberA = parseInt(nameA.match(/\d+$/));
+            var numberB = parseInt(nameB.match(/\d+$/));
+
+            // Compare alphabetically first
+            if (namePartA < namePartB) return -1;
+            if (namePartA > namePartB) return 1;
+
+            // If names are equal alphabetically, compare numerically if numbers exist
+            if (!isNaN(numberA) && !isNaN(numberB)) {
+                  return numberA - numberB;
+            } else if (!isNaN(numberA)) {
+                  // 'a' has a number, but 'b' does not, 'a' should come after 'b'
+                  return 1;
+            } else if (!isNaN(numberB)) {
+                  // 'b' has a number, but 'a' does not, 'b' should come after 'a'
+                  return -1;
+            }
+
+            // if both are NaN, they are equal
+            return 0;
       });
 
       for (const child of children) {
@@ -503,15 +530,20 @@ function getRandomPatterns(count) {
                   .map((pattern) => ({ ...pattern, gameName: game.name }))
       );
 
-      let shuffledPatterns = [];
-      while (shuffledPatterns.length < count) {
-            const shuffle = allPatterns.sort(() => Math.random() - 0.5);
-            shuffledPatterns = [...shuffledPatterns, ...shuffle];
-      }
-
-      const selectedPatterns = [...new Set(shuffledPatterns)].slice(0, count);
+      const shuffledPatterns = shuffleArray(allPatterns);
+      const selectedPatterns = shuffledPatterns.slice(0, count);
 
       return selectedPatterns;
+}
+
+// Helper function to shuffle an array randomly
+function shuffleArray(array) {
+      const shuffledArray = [...array];
+      for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const randomIndex = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[i]];
+      }
+      return shuffledArray;
 }
 
 const sizeSlider = document.getElementById("size-slider");

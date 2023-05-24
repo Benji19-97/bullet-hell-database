@@ -46,9 +46,35 @@ class Queue {
             }
             return true;
       }
-
       sort() {
-            this.items.sort((x) => x.patternName);
+            this.items.sort((a, b) => {
+                  var nameA = a.pattern.name.toLowerCase();
+                  var nameB = b.pattern.name.toLowerCase();
+
+                  // Extract name parts and numeric values from names
+                  var namePartA = nameA.replace(/\d+$/, "").trim();
+                  var namePartB = nameB.replace(/\d+$/, "").trim();
+                  var numberA = parseInt((nameA.match(/\d+$/g) || []).pop());
+                  var numberB = parseInt((nameB.match(/\d+$/g) || []).pop());
+
+                  // Compare alphabetically first
+                  if (namePartA < namePartB) return -1;
+                  if (namePartA > namePartB) return 1;
+
+                  // If names are equal alphabetically, compare numerically if numbers exist
+                  if (!isNaN(numberA) && !isNaN(numberB)) {
+                        return numberA - numberB;
+                  } else if (!isNaN(numberA)) {
+                        // 'a' has a number, but 'b' does not, 'a' should come after 'b'
+                        return 1;
+                  } else if (!isNaN(numberB)) {
+                        // 'b' has a number, but 'a' does not, 'b' should come after 'a'
+                        return -1;
+                  }
+
+                  // if both are NaN, they are equal
+                  return 0;
+            });
       }
 
       // Print the elements of the queue

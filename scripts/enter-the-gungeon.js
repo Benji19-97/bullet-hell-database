@@ -19,7 +19,7 @@ data.push({
             {
                   name: "Ammoconda 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Ammoconda_2_resized.gif",
-                  tags: ["boss", "forward", "kiki", "directional", "line"],
+                  tags: ["boss", "forward", "parallel", "directional", "line"],
             },
             {
                   name: "Beholster",
@@ -34,7 +34,7 @@ data.push({
             {
                   name: "Blobulord 1",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Blobulord_1_resized.gif",
-                  tags: ["boss", "shape", "bouba", "funny"],
+                  tags: ["boss", "shape", "bouba", "funny", "creative"],
             },
             {
                   name: "Blobulord 2",
@@ -64,7 +64,7 @@ data.push({
             {
                   name: "Bullet King 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Bullet_King_2_resized.gif",
-                  tags: ["boss", "nova"],
+                  tags: ["boss", "nova", "difficult"],
             },
             {
                   name: "Bullet King 3",
@@ -89,7 +89,7 @@ data.push({
             {
                   name: "Cannonbalrog 1",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Cannonbalrog_1_resized.gif",
-                  tags: ["boss", "spiral"],
+                  tags: ["boss", "spiral", "difficult"],
             },
             {
                   name: "Cannonbalrog 2",
@@ -139,7 +139,7 @@ data.push({
             {
                   name: "Dr. Wolfs Monster 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Dr_Wolfs_Monster_2_resized.gif",
-                  tags: ["boss", "shape"],
+                  tags: ["boss", "shape", "creative"],
             },
             {
                   name: "Gatling Gull",
@@ -149,12 +149,12 @@ data.push({
             {
                   name: "Gorgun 1",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Gorgun_1_resized.gif",
-                  tags: ["boss", "nova"],
+                  tags: ["boss", "nova", "difficult"],
             },
             {
                   name: "Gorgun 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Gorgun_2_resized.gif",
-                  tags: ["boss", "nova"],
+                  tags: ["boss", "nova", "difficult"],
             },
             {
                   name: "Gorgun 3",
@@ -189,7 +189,7 @@ data.push({
             {
                   name: "High Dragun 6",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_High_Dragun_6_resized.gif",
-                  tags: ["boss", "directional", "complex"],
+                  tags: ["boss", "directional", "complex", "difficult"],
             },
             {
                   name: "High Priest 1",
@@ -229,12 +229,12 @@ data.push({
             {
                   name: "Interdimensional Horror 1",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Interdimensional_Horror_1_resized.gif",
-                  tags: ["boss", "nova", "spiral", "kiki"],
+                  tags: ["boss", "nova", "spiral", "difficult"],
             },
             {
                   name: "Interdimensional Horror 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Interdimensional_Horror_2_resized.gif",
-                  tags: ["boss", "nova", "bouba", "squiggly", "random"],
+                  tags: ["boss", "nova", "difficult", "squiggly", "random"],
             },
             {
                   name: "Interdimensional Horror 3",
@@ -244,7 +244,7 @@ data.push({
             {
                   name: "Kill Pillars 1",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Kill_Pillars_1_resized.gif",
-                  tags: ["boss", "complex", "nova", "line", "spinning"],
+                  tags: ["boss", "complex", "nova", "line", "spinning", "difficult"],
             },
             {
                   name: "Kill Pillars 2",
@@ -269,7 +269,7 @@ data.push({
             {
                   name: "Lich 4",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Lich_4_resized.gif",
-                  tags: ["boss", "directional", "forward", "kiki"],
+                  tags: ["boss", "directional", "forward", "difficult"],
             },
             {
                   name: "Lich 5",
@@ -284,7 +284,7 @@ data.push({
             {
                   name: "Lich 7",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Lich_7_resized.gif",
-                  tags: ["boss", "complex", "spinning", "nova", "directional"],
+                  tags: ["boss", "complex", "spinning", "nova", "directional", "creative"],
             },
             {
                   name: "Lich 8",
@@ -294,7 +294,7 @@ data.push({
             {
                   name: "Lich 9",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Lich_9_resized.gif",
-                  tags: ["boss", "line", "shape", "directional"],
+                  tags: ["boss", "line", "shape", "parallel", "creative"],
             },
             {
                   name: "Mine Flayer 1",
@@ -349,12 +349,12 @@ data.push({
             {
                   name: "Resourceful Rat 3",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Resourceful_Rat_3_resized.gif",
-                  tags: ["boss", "directional"],
+                  tags: ["boss", "directional", "difficult"],
             },
             {
                   name: "Resourceful Rat 4",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Resourceful_Rat_4_resized.gif",
-                  tags: ["boss", "spinning", "bouba", "line"],
+                  tags: ["boss", "spinning", "line", "difficult"],
             },
             {
                   name: "Resourceful Rat 5",
@@ -394,27 +394,12 @@ data.push({
             {
                   name: "Wallmonger 1",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Wallmonger_1_resized.gif",
-                  tags: ["boss", "forward", "line", "directional"],
+                  tags: ["boss", "forward", "line", "directional", "parallel"],
             },
             {
                   name: "Wallmonger 2",
                   gif: "../assets/gifs/enter-the-gungeon/ETG_Wallmonger_2_resized.gif",
-                  tags: ["boss", "shape", "forward", "directional"],
-            },
-            {
-                  name: "",
-                  gif: "../assets/gifs/enter-the-gungeon",
-                  tags: ["boss"],
-            },
-            {
-                  name: "",
-                  gif: "../assets/gifs/enter-the-gungeon",
-                  tags: ["boss"],
-            },
-            {
-                  name: "",
-                  gif: "../assets/gifs/enter-the-gungeon",
-                  tags: ["boss"],
+                  tags: ["boss", "shape", "forward", "directional", "parallel"],
             },
       ],
 });

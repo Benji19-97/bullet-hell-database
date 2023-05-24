@@ -24,17 +24,17 @@ data.push({
             {
                   name: "Spirals 1",
                   gif: "../assets/gifs/uni-bullet-hell-unity-asset-pack/UBHAP_Spirals_1.gif",
-                  tags: ["spiral"],
+                  tags: ["spiral", "difficult"],
             },
             {
                   name: "Spirals 2",
                   gif: "../assets/gifs/uni-bullet-hell-unity-asset-pack/UBHAP_Spirals_2.gif",
-                  tags: ["spiral", "nova"],
+                  tags: ["spiral", "nova", "difficult"],
             },
             {
                   name: "Spirals 3",
                   gif: "../assets/gifs/uni-bullet-hell-unity-asset-pack/UBHAP_Spirals_3.gif",
-                  tags: ["spiral", "nova"],
+                  tags: ["spiral", "nova", "creative", "difficult"],
             },
             {
                   name: "Spirals 4",
@@ -44,7 +44,7 @@ data.push({
             {
                   name: "Spirals 5",
                   gif: "../assets/gifs/uni-bullet-hell-unity-asset-pack/UBHAP_Spirals_5.gif",
-                  tags: ["spiral", "nova"],
+                  tags: ["spiral", "nova", "creative", "difficult"],
             },
             {
                   name: "Spirals 6",

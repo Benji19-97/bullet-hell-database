@@ -14,7 +14,7 @@ data.push({
             {
                   name: "Colostomia",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_Colostomia.gif",
-                  tags: ["boss", "dash", "trail", "area"],
+                  tags: ["boss", "dash", "trail", "area", "creative"],
             },
             {
                   name: "Dangle",
@@ -24,7 +24,7 @@ data.push({
             {
                   name: "Dark One",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_Dark_One.gif",
-                  tags: ["boss", "dash"],
+                  tags: ["boss", "dash", "creative"],
             },
             {
                   name: "Death",
@@ -39,7 +39,7 @@ data.push({
             {
                   name: "Fistula",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_Fistula.gif",
-                  tags: ["boss", "transformation", "summon"],
+                  tags: ["boss", "transformation", "summon", "creative"],
             },
             {
                   name: "Gemini",
@@ -49,7 +49,7 @@ data.push({
             {
                   name: "Hornfel",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_Hornfel.gif",
-                  tags: ["boss", "summon"],
+                  tags: ["boss", "summon", "creative"],
             },
             {
                   name: "Isaac 1",
@@ -59,7 +59,7 @@ data.push({
             {
                   name: "Isaac 2",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_Isaac_2.gif",
-                  tags: ["boss", "area", "directional"],
+                  tags: ["boss", "area", "directional", "creative", "difficult"],
             },
             {
                   name: "It Lives!",
@@ -79,7 +79,7 @@ data.push({
             {
                   name: "Little Horn",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_Little_Horn.gif",
-                  tags: ["boss", "teleport", "area"],
+                  tags: ["boss", "teleport", "area", "creative"],
             },
             {
                   name: "Mama Gurdy",
@@ -99,7 +99,7 @@ data.push({
             {
                   name: "Mom's Heart",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_Moms_Heart.gif",
-                  tags: ["boss", "spiral", "nova"],
+                  tags: ["boss", "spiral", "nova", "difficult"],
             },
             {
                   name: "Monstro",
@@ -109,12 +109,12 @@ data.push({
             {
                   name: "Mother 1",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_Mother_1.gif",
-                  tags: ["boss", "squiggly", "nova", "random", "line"],
+                  tags: ["boss", "squiggly", "nova", "random", "line", "difficult"],
             },
             {
                   name: "Mother 2",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_Mother_2.gif",
-                  tags: ["boss", "directional", "complex", "forward"],
+                  tags: ["boss", "directional", "forward", "difficult", "parallel"],
             },
             {
                   name: "Pin",
@@ -144,7 +144,7 @@ data.push({
             {
                   name: "The Beast",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_The_Beast.gif",
-                  tags: ["boss", "reverse", "nova"],
+                  tags: ["boss", "reverse", "nova", "difficult"],
             },
             {
                   name: "The Fallen",
@@ -164,7 +164,7 @@ data.push({
             {
                   name: "The Heretic",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_The_Heretic.gif",
-                  tags: ["boss", "laser", "random", "sub-emission"],
+                  tags: ["boss", "laser", "random", "sub-emission", "creative"],
             },
             {
                   name: "The Hollow",
@@ -189,7 +189,7 @@ data.push({
             {
                   name: "The Scourge",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_The_Scourge.gif",
-                  tags: ["boss", "reverse", "spiral"],
+                  tags: ["boss", "reverse", "spiral", "difficult"],
             },
             {
                   name: "The Shell",
@@ -214,7 +214,7 @@ data.push({
             {
                   name: "The Visage",
                   gif: "../assets/gifs/the-binding-of-isaac/TBOI_The_Visage.gif",
-                  tags: ["boss", "laser", "directional"],
+                  tags: ["boss", "laser", "directional", "creative"],
             },
             {
                   name: "Uriel",
