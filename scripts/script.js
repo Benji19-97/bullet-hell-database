@@ -347,10 +347,23 @@ function dequeuePatternsAndShow(amount) {
 
       refreshLoadMoreButton();
       sortChildrenByName(patternsContainer);
+
+      //set tags active and inactive
+      console.log("update tags");
+      const allTagElements = Array.prototype.slice.call(document.getElementsByClassName("tag-element"), 0);
+      allTagElements.forEach(function (tagElement) {
+            if (activeTags.includes(tagElement.textContent)) {
+                  tagElement.classList.remove("inactive-tag");
+            } else {
+                  tagElement.classList.add("inactive-tag");
+            }
+      });
 }
 
+var activeTags = [];
+
 function refreshPatternContainerNow() {
-      let activeTags = [];
+      activeTags = [];
       checkboxElements.forEach(function (checkbox) {
             if (checkbox.checked) {
                   activeTags.push(checkbox.value);
@@ -411,16 +424,6 @@ function refreshPatternContainerNow() {
       patternQueue.sort();
       dequeuePatternsAndShow(10);
 
-      //set tags active and inactive
-      const allTagElements = Array.prototype.slice.call(document.getElementsByClassName("tag-element"), 0);
-      allTagElements.forEach(function (tagElement) {
-            if (activeTags.includes(tagElement.textContent)) {
-                  tagElement.classList.remove("inactive-tag");
-            } else {
-                  tagElement.classList.add("inactive-tag");
-            }
-      });
-
       onSliderChanged();
 }
 
@@ -457,12 +460,12 @@ function countVisibleElements(className) {
 
 function sortChildrenByName(parentElement) {
       const children = Array.from(parentElement.children);
-      children.sort((a, b) => {
-            const nameA = a.name.toLowerCase();
-            const nameB = b.name.toLowerCase();
-            if (nameA < nameB) return -1;
-            if (nameA > nameB) return 1;
-            return 0;
+      children.sort(function (a, b) {
+            var numA = parseInt(a.textContent.match(/\d+/)[0]);
+            var numB = parseInt(b.textContent.match(/\d+/)[0]);
+
+            // Compare the numerical values
+            return numA - numB;
       });
 
       for (const child of children) {

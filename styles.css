@@ -186,22 +186,6 @@ input {
       font-size: 16px;
 }
 
-.tag-box {
-      margin: 10px;
-      text-transform: capitalize;
-      display: flex;
-}
-
-.tag-element {
-      margin-right: 5px;
-      font-weight: 500;
-}
-
-.inactive-tag {
-      color: var(--disabled-text);
-      font-weight: 50;
-}
-
 .loading-overlay {
       position: absolute;
       top: 0;
@@ -425,4 +409,20 @@ a {
       box-shadow: 0px 0px 5px black;
       font-weight: bold;
       cursor: pointer;
+}
+
+.tag-box {
+      margin: 10px;
+      text-transform: capitalize;
+      display: flex;
+}
+
+.tag-element {
+      margin-right: 5px;
+      font-weight: 500;
+}
+
+.inactive-tag {
+      color: var(--disabled-text);
+      font-weight: 50;
 }
