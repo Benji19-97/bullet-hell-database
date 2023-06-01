@@ -63,22 +63,35 @@ function createPatternDisplay(gameName, pattern) {
       let h2 = document.createElement("h2");
       h2.classList.add("pattern-element-header");
       h2.textContent = pattern.name;
-
-      let img = document.createElement("img");
-      let src = removeLeadingDotDotSlash(pattern.gif);
-      img.src = src;
-      // img.setAttribute("data-gifffer", src);
-      div.setAttribute("gif", src);
-
-      // Append elements
       div.appendChild(h2);
 
-      let imgContainer = document.createElement("div");
+      // let img = document.createElement("img");
+      // let src = removeLeadingDotDotSlash(pattern.gif);
+      // img.src = src;
+      // div.setAttribute("gif", src);
+      // let imgContainer = document.createElement("div");
+      // imgContainer.classList.add("pattern-img-container");
+      // div.appendChild(imgContainer);
+      // imgContainer.appendChild(img);
 
-      imgContainer.classList.add("pattern-img-container");
-      div.appendChild(imgContainer);
+      // video
+      let video = document.createElement("video");
+      let src = removeLeadingDotDotSlash(pattern.gif);
+      src = src.replace(".gif", ".webm");
+      video.src = src;
+      video.setAttribute("controls", "");
+      video.setAttribute("autoplay", "");
+      video.setAttribute("loop", "");
+      video.setAttribute("controls", "");
+      video.setAttribute("muted", "");
+      div.setAttribute("webm", src);
 
-      imgContainer.appendChild(img);
+      let videoContainer = document.createElement("div");
+      videoContainer.classList.add("pattern-video-container");
+      div.appendChild(videoContainer);
+
+      videoContainer.appendChild(video);
+      // end video
 
       let tagBox = document.createElement("div");
       tagBox.classList.add("tag-box");
@@ -88,22 +101,28 @@ function createPatternDisplay(gameName, pattern) {
       patternsContainer.appendChild(div);
       allPatternHtmlElements.push(div);
 
-      addLoadingOverlay(imgContainer);
+      // addLoadingOverlay(videoContainer);
 
-      img.onload = function () {
-            var overlay = imgContainer.querySelector(".loading-overlay");
+      video.addEventListener("loadeddata", function () {
+            // var overlay = videoContainer.querySelector(".loading-overlay");
 
-            if (overlay) {
-                  imgContainer.removeChild(overlay);
-            }
+            // if (overlay) {
+            //       videoContainer.removeChild(overlay);
+            // }
 
-            addShareButton(imgContainer, () => {
+            addShareButton(videoContainer, () => {
                   spawnCopyNotification("Copied To Clipboard!");
-                  navigator.clipboard.writeText(window.location.href + "?search=" + pattern.name.replace(" ", "+"));
+                  var url = window.location.href;
+                  var baseUrl = url.split("?")[0];
+                  navigator.clipboard.writeText(baseUrl + "?search=" + pattern.name.replaceAll(" ", "+"));
             });
 
-            addFavoButton(imgContainer, gameName, pattern.name);
-      };
+            addFavoButton(videoContainer, gameName, pattern.name);
+
+            setTimeout(() => {
+                  video.play();
+            }, 2000);
+      });
 
       pattern.tags.sort().forEach(function (tag) {
             div.classList.add(tag.toLowerCase());
@@ -323,7 +342,7 @@ function removeLeadingDotDotSlash(path) {
       return path;
 }
 
-var randomPatterns = 8;
+var randomPatterns = 10;
 
 function refreshPatternContainer() {
       // Clear any existing timeouts
@@ -430,11 +449,12 @@ function refreshPatternContainerNow() {
       }
 
       patternQueue.sort();
-      dequeuePatternsAndShow(10);
+      dequeuePatternsAndShow(20);
 }
 
 var loadMoreButton = document.getElementById("load-more-button");
-loadMoreButton.addEventListener("click", onPressLoadMoreButton);
+let elementsToShow = 25;
+loadMoreButton.addEventListener("click", () => onPressLoadMoreButton(elementsToShow));
 
 function refreshLoadMoreButton() {
       if (patternQueue.isEmpty()) {
@@ -442,7 +462,7 @@ function refreshLoadMoreButton() {
       } else {
             loadMoreButton.style.display = "block";
             let visibleElements = countVisibleElements("pattern-element");
-            loadMoreButton.innerText = `LOAD 10 MORE [showing ${visibleElements}/${
+            loadMoreButton.innerText = `LOAD ${elementsToShow} MORE [showing ${visibleElements}/${
                   visibleElements + patternQueue.size()
             }]`;
       }
@@ -500,8 +520,8 @@ function sortChildrenByName(parentElement) {
       }
 }
 
-function onPressLoadMoreButton() {
-      dequeuePatternsAndShow(10);
+function onPressLoadMoreButton(amount) {
+      dequeuePatternsAndShow(amount);
 }
 
 function hidePattern(gameName, patternName) {
@@ -692,5 +712,5 @@ window.addEventListener("load", () => {
       let height = header.getBoundingClientRect().height;
 
       let bodyOffsetElement = document.getElementById("body-offset");
-      bodyOffsetElement.style.height = height * 1.05 + "px";
+      bodyOffsetElement.style.height = window.matchMedia("(min-width: 768px)").matches ? height * 1.05 + "px" : "20px";
 });

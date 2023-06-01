@@ -88,12 +88,8 @@ input {
 }
 
 .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      position: relative;
       background-color: var(--header-color);
-      z-index: 999;
       filter: drop-shadow(0px -5px 10px black);
 }
 
@@ -102,6 +98,22 @@ input {
       justify-content: flex-start;
       align-items: center;
       padding: 10px;
+      flex-direction: column;
+}
+
+@media (min-width: 768px) {
+      /* Apply floating header styles for screens wider than 768px */
+      .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+      }
+
+      .header-container {
+            flex-direction: row;
+      }
 }
 
 .logo {
@@ -170,14 +182,20 @@ input {
       /* border: solid hsl(230, 10%, 40%); */
 }
 
-.pattern-img-container {
+.pattern-video-container {
       position: relative;
       min-width: 220px;
       min-height: 120px;
       overflow: hidden;
 }
 
-.pattern-img-container img {
+.pattern-video-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Adjust to your desired behavior */
+}
+
+.pattern-video-container video {
       width: 100%;
       height: 100%;
       object-fit: cover; /* Adjust to your desired behavior */
@@ -238,6 +256,10 @@ input {
       border: none;
       color: white;
       cursor: pointer;
+}
+
+#size-slider {
+      width: 300px;
 }
 
 .share-button:hover,
